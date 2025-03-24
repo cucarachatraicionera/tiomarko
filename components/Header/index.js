@@ -11,7 +11,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  const { name, showBlog, showResume } = data;
+  const { name } = data;
 
   useEffect(() => {
     setMounted(true);
@@ -19,6 +19,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
 
   return (
     <>
+      {/* Menú para pantallas pequeñas (Popover) */}
       <Popover className="block tablet:hidden mt-5">
         {({ open }) => (
           <>
@@ -42,7 +43,8 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                       src={`/images/${
                         theme === "dark" ? "moon.svg" : "sun.svg"
                       }`}
-                    ></img>
+                      alt="theme toggle"
+                    />
                   </Button>
                 )}
 
@@ -58,10 +60,12 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                         ? "cancel.svg"
                         : "cancel-white.svg"
                     }`}
-                  ></img>
+                    alt="menu"
+                  />
                 </Popover.Button>
               </div>
             </div>
+
             <Popover.Panel
               className={`absolute right-0 z-10 w-11/12 p-4 ${
                 theme === "dark" ? "bg-slate-800" : "bg-white"
@@ -71,46 +75,25 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 <div className="grid grid-cols-1">
                   <Button onClick={handleWorkScroll}>Work</Button>
                   <Button onClick={handleAboutScroll}>About</Button>
-                  {showBlog && (
-                    <Button onClick={() => router.push("/blog")}>Blog</Button>
-                  )}
-                  {showResume && (
-                    <Button
-                      onClick={() =>
-                        window.open("mailto:hello@chetanverma.com")
-                      }
-                    >
-                      Resume
-                    </Button>
-                  )}
-
                   <Button
-                    onClick={() => window.open("mailto:hello@chetanverma.com")}
+                    onClick={() =>
+                      window.open("mailto:cucarachatraicionera@gmail.com")
+                    }
                   >
-                    Contact
+                    Contacto
                   </Button>
                 </div>
               ) : (
                 <div className="grid grid-cols-1">
                   <Button onClick={() => router.push("/")} classes="first:ml-1">
-                    Home
+                    Inicio
                   </Button>
-                  {showBlog && (
-                    <Button onClick={() => router.push("/blog")}>Blog</Button>
-                  )}
-                  {showResume && (
-                    <Button
-                      onClick={() => router.push("/resume")}
-                      classes="first:ml-1"
-                    >
-                      Resume
-                    </Button>
-                  )}
-
                   <Button
-                    onClick={() => window.open("mailto:hello@chetanverma.com")}
+                    onClick={() =>
+                      window.open("mailto:cucarachatraicionera@gmail.com")
+                    }
                   >
-                    Contact
+                    Contacto
                   </Button>
                 </div>
               )}
@@ -118,6 +101,8 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
           </>
         )}
       </Popover>
+
+      {/* Menú para pantallas grandes */}
       <div
         className={`mt-10 hidden flex-row items-center justify-between sticky ${
           theme === "light" && "bg-white"
@@ -129,24 +114,17 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
         >
           {name}.
         </h1>
+
         {!isBlog ? (
           <div className="flex">
-            <Button onClick={handleWorkScroll}>Work</Button>
-            <Button onClick={handleAboutScroll}>About</Button>
-            {showBlog && (
-              <Button onClick={() => router.push("/blog")}>Blog</Button>
-            )}
-            {showResume && (
-              <Button
-                onClick={() => router.push("/resume")}
-                classes="first:ml-1"
-              >
-                Resume
-              </Button>
-            )}
-
-            <Button onClick={() => window.open("mailto:hello@chetanverma.com")}>
-              Contact
+            <Button onClick={handleWorkScroll}>Trabajos</Button>
+            <Button onClick={handleAboutScroll}>Nosotros</Button>
+            <Button
+              onClick={() =>
+                window.open("mailto:cucarachatraicionera@gmail.com")
+              }
+            >
+              Contacto
             </Button>
             {mounted && theme && data.darkMode && (
               <Button
@@ -154,43 +132,58 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               >
                 <img
                   className="h-6"
-                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
+                  src={`/images/${
+                    theme === "dark" ? "moon.svg" : "sun.svg"
+                  }`}
+                  alt="theme toggle"
+                />
               </Button>
             )}
           </div>
         ) : (
           <div className="flex">
-            <Button onClick={() => router.push("/")}>Home</Button>
-            {showBlog && (
-              <Button onClick={() => router.push("/blog")}>Blog</Button>
-            )}
-            {showResume && (
-              <Button
-                onClick={() => router.push("/resume")}
-                classes="first:ml-1"
-              >
-                Resume
-              </Button>
-            )}
-
+            <Button onClick={() => router.push("/")}>Inicio</Button>
             <Button onClick={() => window.open("mailto:hello@chetanverma.com")}>
-              Contact
+              Contacto
             </Button>
-
             {mounted && theme && data.darkMode && (
               <Button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               >
                 <img
                   className="h-6"
-                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
+                  src={`/images/${
+                    theme === "dark" ? "moon.svg" : "sun.svg"
+                  }`}
+                  alt="theme toggle"
+                />
               </Button>
             )}
           </div>
         )}
       </div>
+
+      {/* Botón flotante de WhatsApp con tamaño mayor y efecto "pulse" */}
+      <a
+        href="https://wa.me/5491123456789?text=¡Hola!%20Quiero%20más%20información."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-5 right-5 z-50"
+      >
+        <img
+          src="https://img.icons8.com/color/96/null/whatsapp--v1.png"
+          alt="WhatsApp"
+          // Hazlo más grande y con animación
+          className="h-16 w-16 animate-pulse"
+        />
+      </a>
+
+      {/* 
+        Estilos globales para ocultar el botón "Edit data".
+        Suponiendo que tenga aria-label="Edit data".
+        Ajusta si el botón usa un ID/clase distintos. 
+      */}
+      
     </>
   );
 };
