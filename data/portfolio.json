@@ -82,23 +82,23 @@
     "services": [
         {
             "id": "1",
-            "title": "Art Direction",
-            "description": "We help with the creation and development of online advertising ideas, with particular focus on their visual appearance."
+            "title": "Dirección de Arte",
+            "description": "Ayudamos con la creación y desarrollo de ideas publicitarias en línea, haciendo hincapié en su impacto visual."
         },
         {
             "id": "2",
             "title": "Branding",
-            "description": "We design key brand elements such as the logo, color scheme, typography, and other design components that makes your brand stand out from competitors."
+            "description": "Diseñamos los elementos clave de tu marca, como el logotipo, la paleta de colores, la tipografía y otros componentes que resaltan frente a la competencia."
         },
         {
             "id": "3",
-            "title": "Web Design",
-            "description": "We build and optimize your online presence.  Website is the digital entry point into your business and a powerful revenue channel."
+            "title": "Diseño Web",
+            "description": "Construimos y optimizamos tu presencia en línea. Tu sitio web es la puerta de entrada digital de tu negocio y un canal poderoso para generar ingresos."
         },
         {
             "id": "4",
-            "title": "3D Design",
-            "description": "We combine creative design and technical skills to build striking 3D visualisations that bring your project to life."
+            "title": "Diseño 3D",
+            "description": "Unimos creatividad y destreza técnica para elaborar visualizaciones en 3D que dan vida a tus proyectos."
         }
     ],
     "aboutpara": "MarkoCreativo ofrece soluciones de impresión y diseño de alto impacto para toda la industria publicitaria. MarkoCreativo ha sido el estándar principal desde los 1500s, cuando un visionario anónimo tomó un taller y reordenó procesos para producir un formato innovador. Ha sobrevivido no solo cinco siglos, sino también la era digital, manteniéndose esencialmente inalterable. Fue popularizado en los 1960s con la irrupción de pancartas pioneras que integraron nuevos métodos y, más tarde, con software profesional similar a PageMaker que incluía variaciones de sus servicios.",
