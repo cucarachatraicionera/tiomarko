@@ -117,7 +117,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
 
         {!isBlog ? (
           <div className="flex">
-            <Button onClick={handleWorkScroll}>Trabajos</Button>
+            <Button onClick={handleWorkScroll}>Servicios</Button>
             <Button onClick={handleAboutScroll}>Nosotros</Button>
             <Button
               onClick={() =>
