@@ -15,7 +15,6 @@ import Cursor from "../components/Cursor";
 import data from "../data/portfolio.json";
 
 export default function Home() {
-  // Ref
   const workRef = useRef();
   const aboutRef = useRef();
   const textOne = useRef();
@@ -23,7 +22,6 @@ export default function Home() {
   const textThree = useRef();
   const textFour = useRef();
 
-  // Handling Scroll
   const handleWorkScroll = () => {
     window.scrollTo({
       top: workRef.current.offsetTop,
@@ -54,6 +52,17 @@ export default function Home() {
       <Head>
         <title>{data.name}</title>
       </Head>
+
+      {/* ÍCONO FLOTANTE SUPERIOR IZQUIERDO */}
+      <div className="fixed top-4 left-4 z-50 w-24 h-24 tablet:w-20 tablet:h-20 mobile:w-16 mobile:h-16 transition-transform duration-300 hover:scale-110">
+        <a href="/">
+          <img
+            src="https://res.cloudinary.com/dlmnqfrll/image/upload/v1742910999/Pasted_image-removebg-preview_iw4cxc.png"
+            alt="Marko Creativo"
+            className="w-full h-auto rounded-full shadow-md"
+          />
+        </a>
+      </div>
 
       <div className="gradient-circle"></div>
       <div className="gradient-circle-bottom"></div>
@@ -93,9 +102,9 @@ export default function Home() {
 
           <Socials className="mt-2 laptop:mt-5" />
         </div>
+
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
           <h1 className="text-2xl text-bold">Servicios.</h1>
-
           <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
             {data.projects.map((project) => (
               <WorkCard
@@ -121,7 +130,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-        {/* This button should not go into production */}
+
+        {/* Botón de edición solo en desarrollo */}
         {process.env.NODE_ENV === "development" && (
           <div className="fixed bottom-5 right-5">
             <Link href="/edit">
@@ -129,6 +139,7 @@ export default function Home() {
             </Link>
           </div>
         )}
+
         <div className="mt-10 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
           <h1 className="tablet:m-10 text-2xl text-bold">Sobre Nosotros</h1>
           <p className="tablet:m-10 mt-2 text-xl laptop:text-3xl w-full laptop:w-3/5">
