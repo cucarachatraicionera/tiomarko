@@ -1,4 +1,7 @@
 import { useRef } from "react";
+import Image from "next/image";
+import Head from "next/head";
+import Link from "next/link";
 import Header from "../components/Header";
 import ServiceCard from "../components/ServiceCard";
 import Socials from "../components/Socials";
@@ -6,9 +9,7 @@ import WorkCard from "../components/WorkCard";
 import { useIsomorphicLayoutEffect } from "../utils";
 import { stagger } from "../animations";
 import Footer from "../components/Footer";
-import Head from "next/head";
 import Button from "../components/Button";
-import Link from "next/link";
 import Cursor from "../components/Cursor";
 
 // Local Data
@@ -56,10 +57,12 @@ export default function Home() {
       {/* ÍCONO FLOTANTE SUPERIOR IZQUIERDO */}
       <div className="fixed top-4 left-4 z-50 w-24 h-24 tablet:w-20 tablet:h-20 mobile:w-16 mobile:h-16 transition-transform duration-300 hover:scale-110">
         <a href="/">
-          <img
+          <Image
             src="https://res.cloudinary.com/dlmnqfrll/image/upload/v1742910999/Pasted_image-removebg-preview_iw4cxc.png"
             alt="Marko Creativo"
-            className="w-full h-auto rounded-full shadow-md"
+            width={96}
+            height={96}
+            className="rounded-full shadow-md"
           />
         </a>
       </div>
@@ -119,7 +122,7 @@ export default function Home() {
         </div>
 
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
-          <h1 className="tablet:m-10 text-2xl text-bold"></h1>
+          <h1 className="tablet:m-10 text-2xl text-bold">Nuestros Servicios</h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.services.map((service, index) => (
               <ServiceCard
